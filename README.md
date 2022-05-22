@@ -14,14 +14,14 @@ gpg --full-generate-key
 ```
 gpg --list-secret-keys --keyid-format LONG
 ```
-![This is an image](/Pictures/PSA2.png)
+![This is an image](/Pictures/RSA2.png)
 ```
 GPG_KEY_ID=$(gpg --list-secret-keys --keyid-format LONG | grep ssb | tail -1 | awk '{print $2}' | awk -F'/' '{print $2}')
 GPG_SEC_KEY_ID=$(gpg --list-secret-keys --keyid-format LONG | grep sec | tail -1 | awk '{print $2}' | awk -F'/' '{print $2}')
 gpg --armor --export ${GPG_KEY_ID} | xclip -selection clipboard
 xclip -selection clipboard -o
 ```
-![This is an image](/Pictures/PSA3.png)
+![This is an image](/Pictures/RSA3.png)
 ```
 git config user.signingkey ${GPG_SEC_KEY_ID}
 git config gpg.program gpg
